@@ -24,12 +24,16 @@ const imageGrid = [
   require('../assets/images/images10.png'),
 ];
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
     <View style={styles.image}>
       <Image source={item} />
     </View>
   );
+
+  const handleLoginPress = () => {
+    navigation.navigate('Login Options');
+  };
 
   return (
     <View style={styles.container}>
@@ -47,7 +51,6 @@ const LoginScreen = () => {
           }}
         />
       </View>
-
       <View style={styles.bottomContainer}>
         <Image
           source={require('../assets/images/logo.jpeg')}
@@ -63,6 +66,7 @@ const LoginScreen = () => {
                 ? { opacity: 0.5, transform: [{ scale: 0.96 }] }
                 : { opacity: 1 }
             }
+            onPress={handleLoginPress}
           >
             <Text style={styles.googleButtonText}>Login</Text>
           </Pressable>
